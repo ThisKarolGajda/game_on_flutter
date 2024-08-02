@@ -1,5 +1,5 @@
 import 'package:game_on/common/util/exports.dart';
-import 'package:game_on/features/servers/presentation/bloc/server/server_bloc.dart';
+import 'package:game_on/features/servers/presentation/bloc/server_bloc.dart';
 import 'package:game_on/features/servers/presentation/widgets/server_card_widget.dart';
 
 class ServerListPage extends StatelessWidget {
@@ -17,7 +17,7 @@ class ServerListPage extends StatelessWidget {
     return SafeArea(
       child: BlocBuilder<ServerBloc, ServerState>(
         builder: (context, state) {
-          if (state is ServerListLoaded) {
+          if (state is ServersLoaded) {
             return Container(
               margin: EdgeInsets.symmetric(horizontal: 7.w),
               child: Column(
@@ -27,8 +27,8 @@ class ServerListPage extends StatelessWidget {
                     'Promowane serwery',
                     style: TextStyles.base(),
                   ),
-                  ...state.serverList.servers
-                      .where((server) => server.featured)
+                  ...state.servers
+                      .where((server) => server.basicData.featured)
                       .map(
                         (server) => Padding(
                           padding: EdgeInsets.symmetric(vertical: 0.5.h),
@@ -40,8 +40,8 @@ class ServerListPage extends StatelessWidget {
                     'Zobacz, świeci',
                     style: TextStyles.base(),
                   ),
-                  ...state.serverList.servers
-                      .where((server) => !server.featured)
+                  ...state.servers
+                      .where((server) => !server.basicData.featured)
                       .map(
                         (server) => Padding(
                           padding: EdgeInsets.symmetric(vertical: 0.5.h),
@@ -53,7 +53,7 @@ class ServerListPage extends StatelessWidget {
             );
           }
 
-          if (state is ServerListError) {
+          if (state is ServerError) {
             return Text(state.exception.toString());
           }
 

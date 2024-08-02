@@ -1,7 +1,6 @@
 import 'package:game_on/common/util/exports.dart';
-import 'package:game_on/features/servers/data/models/server_info_model.dart';
 import 'package:game_on/features/servers/data/models/server_model.dart';
-import 'package:game_on/features/servers/presentation/bloc/server_info_list/server_info_list_bloc.dart';
+import 'package:game_on/features/servers/presentation/widgets/server_features.dart';
 
 class ServerCardWidget extends StatelessWidget {
   final ServerModel serverModel;
@@ -13,49 +12,25 @@ class ServerCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> features = ['MAPA', 'GILDIE', 'COŚ', 'EPICKO'];
-
-    return BlocBuilder<ServerInfoListBloc, ServerInfoListState>(
-        builder: (context, state) {
-      if (state is ServerInfoListLoaded) {
-        ServerInfoModel? serverInfoModel = state.get(serverModel);
-        return GestureDetector(
-          onTap: () {
-            context.push('/servers/page', extra: {
-              'serverInfoModel': serverInfoModel,
-              'serverModel': serverModel,
-            });
-          },
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 12.sp, horizontal: 14.sp),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6),
-              color: serverModel.featured ? accent : secondary,
-            ),
-            child: buildContent(serverInfoModel, features),
-          ),
-        );
-      }
-
-      get<ServerInfoListBloc>().add(ServerInfoListFetchServer(serverModel));
-      return Container(
+    return GestureDetector(
+      onTap: () => context.push('/servers/page', extra: serverModel),
+      child: Container(
         padding: EdgeInsets.symmetric(vertical: 12.sp, horizontal: 14.sp),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
-          color: serverModel.featured ? accent : secondary,
+          color: serverModel.basicData.featured ? accent : secondary,
         ),
-        height: 32.sp,
-        width: 86.w,
-      );
-    });
+        child: buildContent(),
+      ),
+    );
   }
 
-  Row buildContent(ServerInfoModel? infoModel, List<String> features) {
+  buildContent() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Image.network(
-          serverModel.image,
+          serverModel.basicData.image,
           fit: BoxFit.cover,
           width: 30.sp,
           height: 30.sp,
@@ -65,8 +40,8 @@ class ServerCardWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              buildTextContent(infoModel),
-              buildFeatures(features),
+              buildTextContent(),
+              buildFeatures(),
             ],
           ),
         ),
@@ -74,23 +49,23 @@ class ServerCardWidget extends StatelessWidget {
     );
   }
 
-  Row buildTextContent(ServerInfoModel? infoModel) {
+  buildTextContent() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          serverModel.name,
+          serverModel.basicData.name,
           style: TextStyles.lg().copyWith(
-            color: serverModel.featured ? white : text,
+            color: serverModel.basicData.featured ? white : text,
           ),
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${infoModel?.onlinePlayers.length} graczy',
+              '${serverModel.info?.onlinePlayers.length} graczy',
               style: TextStyles.sm().copyWith(
-                color: serverModel.featured ? white : text,
+                color: serverModel.basicData.featured ? white : text,
               ),
             ),
             Container(
@@ -99,7 +74,8 @@ class ServerCardWidget extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 0.5.h),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: infoModel == null ? Colors.red : Colors.greenAccent,
+                color:
+                    serverModel.info == null ? Colors.red : Colors.greenAccent,
               ),
             ),
           ],
@@ -108,29 +84,11 @@ class ServerCardWidget extends StatelessWidget {
     );
   }
 
-  Row buildFeatures(List<String> features) {
-    return Row(
-      children: features
-          .map((feature) => Row(
-                children: [
-                  Text(
-                    feature,
-                    style: TextStyles.sm().copyWith(
-                      color: serverModel.featured ? white : text,
-                    ),
-                  ),
-                  Container(
-                    width: 6.sp,
-                    height: 6.sp,
-                    margin: EdgeInsets.symmetric(horizontal: 0.5.h),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: serverModel.featured ? white : text,
-                    ),
-                  ),
-                ],
-              ))
-          .toList(),
-    );
+  buildFeatures() {
+    if (serverModel.features != null) {
+      return ServerFeatures(serverModel: serverModel, addColorToFeatured: true,);
+    } else {
+      return Container();
+    }
   }
 }

@@ -1,22 +1,26 @@
-import 'dart:convert';
-
-import 'package:firebase_remote_config/firebase_remote_config.dart';
-import 'package:game_on/features/servers/data/models/server_model.dart';
+import 'package:game_on/common/util/exports.dart';
+import 'package:game_on/features/servers/data/models/basic_data/server_basic_data_model.dart';
 
 class RemoteConfigServerApi {
-  Future<ServerList> fetchServers() async {
+  Future<List<ServerBasicDataModel>> fetchServers() async {
     RemoteConfigValue value = FirebaseRemoteConfig.instance.getValue('servers');
     if (value.source == ValueSource.valueRemote) {
       String jsonString = value.asString();
 
       Map<String, dynamic> jsonResponse = jsonDecode(jsonString);
 
-      return ServerList.fromJson(jsonResponse);
+      List<dynamic> serversJson = jsonResponse['servers'];
+      List<ServerBasicDataModel> servers = serversJson
+          .map((serverJson) => ServerBasicDataModel.fromJson(serverJson))
+          .toList();
+
+      return servers;
     } else {
-      print('No remote value found for servers.');
+      if (kDebugMode) {
+        print('No remote value found for servers.');
+      }
     }
 
-    return const ServerList(servers: []);
+    return [];
   }
-
 }

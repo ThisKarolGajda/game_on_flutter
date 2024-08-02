@@ -20,12 +20,9 @@ ServerModel _$ServerModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ServerModel {
-  String get name => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
-  int get port => throw _privateConstructorUsedError;
-  String get image => throw _privateConstructorUsedError;
-  bool get featured => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  ServerFeaturesModel? get features => throw _privateConstructorUsedError;
+  ServerInfoModel? get info => throw _privateConstructorUsedError;
+  ServerBasicDataModel get basicData => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,12 +37,13 @@ abstract class $ServerModelCopyWith<$Res> {
       _$ServerModelCopyWithImpl<$Res, ServerModel>;
   @useResult
   $Res call(
-      {String name,
-      String address,
-      int port,
-      String image,
-      bool featured,
-      String description});
+      {ServerFeaturesModel? features,
+      ServerInfoModel? info,
+      ServerBasicDataModel basicData});
+
+  $ServerFeaturesModelCopyWith<$Res>? get features;
+  $ServerInfoModelCopyWith<$Res>? get info;
+  $ServerBasicDataModelCopyWith<$Res> get basicData;
 }
 
 /// @nodoc
@@ -61,39 +59,56 @@ class _$ServerModelCopyWithImpl<$Res, $Val extends ServerModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? address = null,
-    Object? port = null,
-    Object? image = null,
-    Object? featured = null,
-    Object? description = null,
+    Object? features = freezed,
+    Object? info = freezed,
+    Object? basicData = null,
   }) {
     return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      port: null == port
-          ? _value.port
-          : port // ignore: cast_nullable_to_non_nullable
-              as int,
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      featured: null == featured
-          ? _value.featured
-          : featured // ignore: cast_nullable_to_non_nullable
-              as bool,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
+      features: freezed == features
+          ? _value.features
+          : features // ignore: cast_nullable_to_non_nullable
+              as ServerFeaturesModel?,
+      info: freezed == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as ServerInfoModel?,
+      basicData: null == basicData
+          ? _value.basicData
+          : basicData // ignore: cast_nullable_to_non_nullable
+              as ServerBasicDataModel,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ServerFeaturesModelCopyWith<$Res>? get features {
+    if (_value.features == null) {
+      return null;
+    }
+
+    return $ServerFeaturesModelCopyWith<$Res>(_value.features!, (value) {
+      return _then(_value.copyWith(features: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ServerInfoModelCopyWith<$Res>? get info {
+    if (_value.info == null) {
+      return null;
+    }
+
+    return $ServerInfoModelCopyWith<$Res>(_value.info!, (value) {
+      return _then(_value.copyWith(info: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ServerBasicDataModelCopyWith<$Res> get basicData {
+    return $ServerBasicDataModelCopyWith<$Res>(_value.basicData, (value) {
+      return _then(_value.copyWith(basicData: value) as $Val);
+    });
   }
 }
 
@@ -106,12 +121,16 @@ abstract class _$$ServerModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name,
-      String address,
-      int port,
-      String image,
-      bool featured,
-      String description});
+      {ServerFeaturesModel? features,
+      ServerInfoModel? info,
+      ServerBasicDataModel basicData});
+
+  @override
+  $ServerFeaturesModelCopyWith<$Res>? get features;
+  @override
+  $ServerInfoModelCopyWith<$Res>? get info;
+  @override
+  $ServerBasicDataModelCopyWith<$Res> get basicData;
 }
 
 /// @nodoc
@@ -125,38 +144,23 @@ class __$$ServerModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? address = null,
-    Object? port = null,
-    Object? image = null,
-    Object? featured = null,
-    Object? description = null,
+    Object? features = freezed,
+    Object? info = freezed,
+    Object? basicData = null,
   }) {
     return _then(_$ServerModelImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      port: null == port
-          ? _value.port
-          : port // ignore: cast_nullable_to_non_nullable
-              as int,
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      featured: null == featured
-          ? _value.featured
-          : featured // ignore: cast_nullable_to_non_nullable
-              as bool,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
+      features: freezed == features
+          ? _value.features
+          : features // ignore: cast_nullable_to_non_nullable
+              as ServerFeaturesModel?,
+      info: freezed == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as ServerInfoModel?,
+      basicData: null == basicData
+          ? _value.basicData
+          : basicData // ignore: cast_nullable_to_non_nullable
+              as ServerBasicDataModel,
     ));
   }
 }
@@ -164,33 +168,21 @@ class __$$ServerModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ServerModelImpl implements _ServerModel {
-  const _$ServerModelImpl(
-      {required this.name,
-      required this.address,
-      required this.port,
-      required this.image,
-      required this.featured,
-      required this.description});
+  const _$ServerModelImpl({this.features, this.info, required this.basicData});
 
   factory _$ServerModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServerModelImplFromJson(json);
 
   @override
-  final String name;
+  final ServerFeaturesModel? features;
   @override
-  final String address;
+  final ServerInfoModel? info;
   @override
-  final int port;
-  @override
-  final String image;
-  @override
-  final bool featured;
-  @override
-  final String description;
+  final ServerBasicDataModel basicData;
 
   @override
   String toString() {
-    return 'ServerModel(name: $name, address: $address, port: $port, image: $image, featured: $featured, description: $description)';
+    return 'ServerModel(features: $features, info: $info, basicData: $basicData)';
   }
 
   @override
@@ -198,20 +190,16 @@ class _$ServerModelImpl implements _ServerModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ServerModelImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.address, address) || other.address == address) &&
-            (identical(other.port, port) || other.port == port) &&
-            (identical(other.image, image) || other.image == image) &&
-            (identical(other.featured, featured) ||
-                other.featured == featured) &&
-            (identical(other.description, description) ||
-                other.description == description));
+            (identical(other.features, features) ||
+                other.features == features) &&
+            (identical(other.info, info) || other.info == info) &&
+            (identical(other.basicData, basicData) ||
+                other.basicData == basicData));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, name, address, port, image, featured, description);
+  int get hashCode => Object.hash(runtimeType, features, info, basicData);
 
   @JsonKey(ignore: true)
   @override
@@ -229,174 +217,21 @@ class _$ServerModelImpl implements _ServerModel {
 
 abstract class _ServerModel implements ServerModel {
   const factory _ServerModel(
-      {required final String name,
-      required final String address,
-      required final int port,
-      required final String image,
-      required final bool featured,
-      required final String description}) = _$ServerModelImpl;
+      {final ServerFeaturesModel? features,
+      final ServerInfoModel? info,
+      required final ServerBasicDataModel basicData}) = _$ServerModelImpl;
 
   factory _ServerModel.fromJson(Map<String, dynamic> json) =
       _$ServerModelImpl.fromJson;
 
   @override
-  String get name;
+  ServerFeaturesModel? get features;
   @override
-  String get address;
+  ServerInfoModel? get info;
   @override
-  int get port;
-  @override
-  String get image;
-  @override
-  bool get featured;
-  @override
-  String get description;
+  ServerBasicDataModel get basicData;
   @override
   @JsonKey(ignore: true)
   _$$ServerModelImplCopyWith<_$ServerModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-ServerList _$ServerListFromJson(Map<String, dynamic> json) {
-  return _ServerList.fromJson(json);
-}
-
-/// @nodoc
-mixin _$ServerList {
-  List<ServerModel> get servers => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ServerListCopyWith<ServerList> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ServerListCopyWith<$Res> {
-  factory $ServerListCopyWith(
-          ServerList value, $Res Function(ServerList) then) =
-      _$ServerListCopyWithImpl<$Res, ServerList>;
-  @useResult
-  $Res call({List<ServerModel> servers});
-}
-
-/// @nodoc
-class _$ServerListCopyWithImpl<$Res, $Val extends ServerList>
-    implements $ServerListCopyWith<$Res> {
-  _$ServerListCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? servers = null,
-  }) {
-    return _then(_value.copyWith(
-      servers: null == servers
-          ? _value.servers
-          : servers // ignore: cast_nullable_to_non_nullable
-              as List<ServerModel>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ServerListImplCopyWith<$Res>
-    implements $ServerListCopyWith<$Res> {
-  factory _$$ServerListImplCopyWith(
-          _$ServerListImpl value, $Res Function(_$ServerListImpl) then) =
-      __$$ServerListImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<ServerModel> servers});
-}
-
-/// @nodoc
-class __$$ServerListImplCopyWithImpl<$Res>
-    extends _$ServerListCopyWithImpl<$Res, _$ServerListImpl>
-    implements _$$ServerListImplCopyWith<$Res> {
-  __$$ServerListImplCopyWithImpl(
-      _$ServerListImpl _value, $Res Function(_$ServerListImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? servers = null,
-  }) {
-    return _then(_$ServerListImpl(
-      servers: null == servers
-          ? _value._servers
-          : servers // ignore: cast_nullable_to_non_nullable
-              as List<ServerModel>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ServerListImpl implements _ServerList {
-  const _$ServerListImpl({required final List<ServerModel> servers})
-      : _servers = servers;
-
-  factory _$ServerListImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ServerListImplFromJson(json);
-
-  final List<ServerModel> _servers;
-  @override
-  List<ServerModel> get servers {
-    if (_servers is EqualUnmodifiableListView) return _servers;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_servers);
-  }
-
-  @override
-  String toString() {
-    return 'ServerList(servers: $servers)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ServerListImpl &&
-            const DeepCollectionEquality().equals(other._servers, _servers));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_servers));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ServerListImplCopyWith<_$ServerListImpl> get copyWith =>
-      __$$ServerListImplCopyWithImpl<_$ServerListImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ServerListImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _ServerList implements ServerList {
-  const factory _ServerList({required final List<ServerModel> servers}) =
-      _$ServerListImpl;
-
-  factory _ServerList.fromJson(Map<String, dynamic> json) =
-      _$ServerListImpl.fromJson;
-
-  @override
-  List<ServerModel> get servers;
-  @override
-  @JsonKey(ignore: true)
-  _$$ServerListImplCopyWith<_$ServerListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
