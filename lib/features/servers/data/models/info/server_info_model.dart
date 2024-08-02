@@ -22,8 +22,8 @@ class ServerInfoModel with _$ServerInfoModel {
     required int viewDistance,
     required String name,
     required String address,
-    @JsonKey(name: 'whitelistedPlayers') required List<String> whitelistedPlayerUuids,
-    @JsonKey(name: 'bannedUsers') required List<String> bannedUserUuids,
+    @JsonValue('whitelistedPlayers') required List<String> whitelistedPlayerUuids,
+    @JsonValue('bannedUsers') required List<String> bannedUserUuids,
   }) = _ServerInfoModel;
 
   factory ServerInfoModel.fromJson(Map<String, dynamic> json) => _$ServerInfoModelFromJson(json);
