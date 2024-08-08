@@ -15,10 +15,10 @@ class PrimaryButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 84.w,
+        width: 86.w,
         height: 6.h,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
+          borderRadius: borderRadius,
           color: accent,
         ),
         child: Center(
@@ -47,10 +47,10 @@ class SecondaryButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 84.w,
+        width: 86.w,
         height: 6.h,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
+          borderRadius: borderRadius,
           color: secondary,
         ),
         child: Center(

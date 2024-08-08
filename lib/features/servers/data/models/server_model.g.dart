@@ -17,6 +17,10 @@ _$ServerModelImpl _$$ServerModelImplFromJson(Map<String, dynamic> json) =>
           : ServerInfoModel.fromJson(json['info'] as Map<String, dynamic>),
       basicData: ServerBasicDataModel.fromJson(
           json['basicData'] as Map<String, dynamic>),
+      colorPanel: json['colorPanel'] == null
+          ? null
+          : ColorPanelModel.fromJson(
+              json['colorPanel'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$ServerModelImplToJson(_$ServerModelImpl instance) =>
@@ -24,4 +28,5 @@ Map<String, dynamic> _$$ServerModelImplToJson(_$ServerModelImpl instance) =>
       'features': instance.features,
       'info': instance.info,
       'basicData': instance.basicData,
+      'colorPanel': instance.colorPanel,
     };

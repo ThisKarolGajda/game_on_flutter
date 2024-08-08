@@ -39,7 +39,7 @@ class TextStyles {
     fontSize: 19.sp,
     fontFamily: 'Lexend',
     fontWeight: FontWeight.w600,
-    height: 3/2,
+    height: 1,
     color: text,
   );
 
@@ -47,7 +47,7 @@ class TextStyles {
     fontSize: 21.sp,
     fontFamily: 'Lexend',
     fontWeight: FontWeight.w700,
-    height: 3/2,
+    height: 1,
     color: text,
   );
 

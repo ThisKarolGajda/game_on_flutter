@@ -6,17 +6,20 @@ class ScaffoldUtil extends StatelessWidget {
   final bool addBackground;
   final Widget? body;
   final PreferredSizeWidget? appBar;
+  final Widget? bottomNavigationBar;
 
   const ScaffoldUtil({
     super.key,
     this.body,
     this.appBar,
     this.addBackground = true,
+    this.bottomNavigationBar,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomNavigationBar,
       backgroundColor: background,
       resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,

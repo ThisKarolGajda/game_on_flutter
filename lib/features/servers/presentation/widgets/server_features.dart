@@ -19,7 +19,7 @@ class ServerFeatures extends StatelessWidget {
       '${serverModel.features!.features.join(' ● ')} ●',
       mode: TextScrollMode.endless,
       style: TextStyles.sm().copyWith(
-        color: addColorToFeatured ? (serverModel.basicData.featured ? white : text) : text,
+        color: addColorToFeatured ? (serverModel.basicData.featured ? onAccent : text) : text,
       ),
       velocity: const Velocity(
         pixelsPerSecond: Offset(25, 0),

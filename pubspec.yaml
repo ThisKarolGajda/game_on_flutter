@@ -28,6 +28,9 @@ dependencies:
   either_dart: ^1.0.0
   responsive_sizer: ^3.3.1
   text_scroll: ^0.2.0
+  flutter_secure_storage: ^4.2.1
+  flutter_svg: ^2.0.10+1
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +44,7 @@ flutter:
   assets:
     - images/
     - images/logo/
+    - images/icons/
 
   fonts:
     - family: Lexend

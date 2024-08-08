@@ -23,6 +23,7 @@ mixin _$ServerModel {
   ServerFeaturesModel? get features => throw _privateConstructorUsedError;
   ServerInfoModel? get info => throw _privateConstructorUsedError;
   ServerBasicDataModel get basicData => throw _privateConstructorUsedError;
+  ColorPanelModel? get colorPanel => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,11 +40,13 @@ abstract class $ServerModelCopyWith<$Res> {
   $Res call(
       {ServerFeaturesModel? features,
       ServerInfoModel? info,
-      ServerBasicDataModel basicData});
+      ServerBasicDataModel basicData,
+      ColorPanelModel? colorPanel});
 
   $ServerFeaturesModelCopyWith<$Res>? get features;
   $ServerInfoModelCopyWith<$Res>? get info;
   $ServerBasicDataModelCopyWith<$Res> get basicData;
+  $ColorPanelModelCopyWith<$Res>? get colorPanel;
 }
 
 /// @nodoc
@@ -62,6 +65,7 @@ class _$ServerModelCopyWithImpl<$Res, $Val extends ServerModel>
     Object? features = freezed,
     Object? info = freezed,
     Object? basicData = null,
+    Object? colorPanel = freezed,
   }) {
     return _then(_value.copyWith(
       features: freezed == features
@@ -76,6 +80,10 @@ class _$ServerModelCopyWithImpl<$Res, $Val extends ServerModel>
           ? _value.basicData
           : basicData // ignore: cast_nullable_to_non_nullable
               as ServerBasicDataModel,
+      colorPanel: freezed == colorPanel
+          ? _value.colorPanel
+          : colorPanel // ignore: cast_nullable_to_non_nullable
+              as ColorPanelModel?,
     ) as $Val);
   }
 
@@ -110,6 +118,18 @@ class _$ServerModelCopyWithImpl<$Res, $Val extends ServerModel>
       return _then(_value.copyWith(basicData: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ColorPanelModelCopyWith<$Res>? get colorPanel {
+    if (_value.colorPanel == null) {
+      return null;
+    }
+
+    return $ColorPanelModelCopyWith<$Res>(_value.colorPanel!, (value) {
+      return _then(_value.copyWith(colorPanel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -123,7 +143,8 @@ abstract class _$$ServerModelImplCopyWith<$Res>
   $Res call(
       {ServerFeaturesModel? features,
       ServerInfoModel? info,
-      ServerBasicDataModel basicData});
+      ServerBasicDataModel basicData,
+      ColorPanelModel? colorPanel});
 
   @override
   $ServerFeaturesModelCopyWith<$Res>? get features;
@@ -131,6 +152,8 @@ abstract class _$$ServerModelImplCopyWith<$Res>
   $ServerInfoModelCopyWith<$Res>? get info;
   @override
   $ServerBasicDataModelCopyWith<$Res> get basicData;
+  @override
+  $ColorPanelModelCopyWith<$Res>? get colorPanel;
 }
 
 /// @nodoc
@@ -147,6 +170,7 @@ class __$$ServerModelImplCopyWithImpl<$Res>
     Object? features = freezed,
     Object? info = freezed,
     Object? basicData = null,
+    Object? colorPanel = freezed,
   }) {
     return _then(_$ServerModelImpl(
       features: freezed == features
@@ -161,6 +185,10 @@ class __$$ServerModelImplCopyWithImpl<$Res>
           ? _value.basicData
           : basicData // ignore: cast_nullable_to_non_nullable
               as ServerBasicDataModel,
+      colorPanel: freezed == colorPanel
+          ? _value.colorPanel
+          : colorPanel // ignore: cast_nullable_to_non_nullable
+              as ColorPanelModel?,
     ));
   }
 }
@@ -168,7 +196,8 @@ class __$$ServerModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ServerModelImpl implements _ServerModel {
-  const _$ServerModelImpl({this.features, this.info, required this.basicData});
+  const _$ServerModelImpl(
+      {this.features, this.info, required this.basicData, this.colorPanel});
 
   factory _$ServerModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServerModelImplFromJson(json);
@@ -179,10 +208,12 @@ class _$ServerModelImpl implements _ServerModel {
   final ServerInfoModel? info;
   @override
   final ServerBasicDataModel basicData;
+  @override
+  final ColorPanelModel? colorPanel;
 
   @override
   String toString() {
-    return 'ServerModel(features: $features, info: $info, basicData: $basicData)';
+    return 'ServerModel(features: $features, info: $info, basicData: $basicData, colorPanel: $colorPanel)';
   }
 
   @override
@@ -194,12 +225,15 @@ class _$ServerModelImpl implements _ServerModel {
                 other.features == features) &&
             (identical(other.info, info) || other.info == info) &&
             (identical(other.basicData, basicData) ||
-                other.basicData == basicData));
+                other.basicData == basicData) &&
+            (identical(other.colorPanel, colorPanel) ||
+                other.colorPanel == colorPanel));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, features, info, basicData);
+  int get hashCode =>
+      Object.hash(runtimeType, features, info, basicData, colorPanel);
 
   @JsonKey(ignore: true)
   @override
@@ -219,7 +253,8 @@ abstract class _ServerModel implements ServerModel {
   const factory _ServerModel(
       {final ServerFeaturesModel? features,
       final ServerInfoModel? info,
-      required final ServerBasicDataModel basicData}) = _$ServerModelImpl;
+      required final ServerBasicDataModel basicData,
+      final ColorPanelModel? colorPanel}) = _$ServerModelImpl;
 
   factory _ServerModel.fromJson(Map<String, dynamic> json) =
       _$ServerModelImpl.fromJson;
@@ -230,6 +265,8 @@ abstract class _ServerModel implements ServerModel {
   ServerInfoModel? get info;
   @override
   ServerBasicDataModel get basicData;
+  @override
+  ColorPanelModel? get colorPanel;
   @override
   @JsonKey(ignore: true)
   _$$ServerModelImplCopyWith<_$ServerModelImpl> get copyWith =>

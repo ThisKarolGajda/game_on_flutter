@@ -23,23 +23,24 @@ mixin _$ServerInfoModel {
   String get version => throw _privateConstructorUsedError;
   String get gameonVersion => throw _privateConstructorUsedError;
   int get maxPlayers => throw _privateConstructorUsedError;
-  List<String> get onlinePlayers => throw _privateConstructorUsedError;
+  List<OnlinePlayer>? get onlinePlayers => throw _privateConstructorUsedError;
   String get motd => throw _privateConstructorUsedError;
   DateTime get uptime => throw _privateConstructorUsedError;
-  List<String> get allowedDimensions => throw _privateConstructorUsedError;
+  List<String>? get allowedDimensions => throw _privateConstructorUsedError;
   int get idleTimeout => throw _privateConstructorUsedError;
-  List<String> get enabledPacks => throw _privateConstructorUsedError;
-  List<String> get disabledPacks => throw _privateConstructorUsedError;
+  List<String>? get enabledPacks => throw _privateConstructorUsedError;
+  List<String>? get disabledPacks => throw _privateConstructorUsedError;
   String get defaultGameMode => throw _privateConstructorUsedError;
   int get simulationDistance => throw _privateConstructorUsedError;
-  List<String> get worlds => throw _privateConstructorUsedError;
+  List<String>? get worlds => throw _privateConstructorUsedError;
   int get viewDistance => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
-  @JsonKey(name: 'whitelistedPlayers')
-  List<String> get whitelistedPlayerUuids => throw _privateConstructorUsedError;
-  @JsonKey(name: 'bannedUsers')
-  List<String> get bannedUserUuids => throw _privateConstructorUsedError;
+  @JsonValue('whitelistedPlayers')
+  List<String>? get whitelistedPlayerUuids =>
+      throw _privateConstructorUsedError;
+  @JsonValue('bannedUsers')
+  List<String>? get bannedUserUuids => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -57,21 +58,21 @@ abstract class $ServerInfoModelCopyWith<$Res> {
       {String version,
       String gameonVersion,
       int maxPlayers,
-      List<String> onlinePlayers,
+      List<OnlinePlayer>? onlinePlayers,
       String motd,
       DateTime uptime,
-      List<String> allowedDimensions,
+      List<String>? allowedDimensions,
       int idleTimeout,
-      List<String> enabledPacks,
-      List<String> disabledPacks,
+      List<String>? enabledPacks,
+      List<String>? disabledPacks,
       String defaultGameMode,
       int simulationDistance,
-      List<String> worlds,
+      List<String>? worlds,
       int viewDistance,
       String name,
       String address,
-      @JsonKey(name: 'whitelistedPlayers') List<String> whitelistedPlayerUuids,
-      @JsonKey(name: 'bannedUsers') List<String> bannedUserUuids});
+      @JsonValue('whitelistedPlayers') List<String>? whitelistedPlayerUuids,
+      @JsonValue('bannedUsers') List<String>? bannedUserUuids});
 }
 
 /// @nodoc
@@ -90,21 +91,21 @@ class _$ServerInfoModelCopyWithImpl<$Res, $Val extends ServerInfoModel>
     Object? version = null,
     Object? gameonVersion = null,
     Object? maxPlayers = null,
-    Object? onlinePlayers = null,
+    Object? onlinePlayers = freezed,
     Object? motd = null,
     Object? uptime = null,
-    Object? allowedDimensions = null,
+    Object? allowedDimensions = freezed,
     Object? idleTimeout = null,
-    Object? enabledPacks = null,
-    Object? disabledPacks = null,
+    Object? enabledPacks = freezed,
+    Object? disabledPacks = freezed,
     Object? defaultGameMode = null,
     Object? simulationDistance = null,
-    Object? worlds = null,
+    Object? worlds = freezed,
     Object? viewDistance = null,
     Object? name = null,
     Object? address = null,
-    Object? whitelistedPlayerUuids = null,
-    Object? bannedUserUuids = null,
+    Object? whitelistedPlayerUuids = freezed,
+    Object? bannedUserUuids = freezed,
   }) {
     return _then(_value.copyWith(
       version: null == version
@@ -119,10 +120,10 @@ class _$ServerInfoModelCopyWithImpl<$Res, $Val extends ServerInfoModel>
           ? _value.maxPlayers
           : maxPlayers // ignore: cast_nullable_to_non_nullable
               as int,
-      onlinePlayers: null == onlinePlayers
+      onlinePlayers: freezed == onlinePlayers
           ? _value.onlinePlayers
           : onlinePlayers // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<OnlinePlayer>?,
       motd: null == motd
           ? _value.motd
           : motd // ignore: cast_nullable_to_non_nullable
@@ -131,22 +132,22 @@ class _$ServerInfoModelCopyWithImpl<$Res, $Val extends ServerInfoModel>
           ? _value.uptime
           : uptime // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      allowedDimensions: null == allowedDimensions
+      allowedDimensions: freezed == allowedDimensions
           ? _value.allowedDimensions
           : allowedDimensions // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       idleTimeout: null == idleTimeout
           ? _value.idleTimeout
           : idleTimeout // ignore: cast_nullable_to_non_nullable
               as int,
-      enabledPacks: null == enabledPacks
+      enabledPacks: freezed == enabledPacks
           ? _value.enabledPacks
           : enabledPacks // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      disabledPacks: null == disabledPacks
+              as List<String>?,
+      disabledPacks: freezed == disabledPacks
           ? _value.disabledPacks
           : disabledPacks // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       defaultGameMode: null == defaultGameMode
           ? _value.defaultGameMode
           : defaultGameMode // ignore: cast_nullable_to_non_nullable
@@ -155,10 +156,10 @@ class _$ServerInfoModelCopyWithImpl<$Res, $Val extends ServerInfoModel>
           ? _value.simulationDistance
           : simulationDistance // ignore: cast_nullable_to_non_nullable
               as int,
-      worlds: null == worlds
+      worlds: freezed == worlds
           ? _value.worlds
           : worlds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       viewDistance: null == viewDistance
           ? _value.viewDistance
           : viewDistance // ignore: cast_nullable_to_non_nullable
@@ -171,14 +172,14 @@ class _$ServerInfoModelCopyWithImpl<$Res, $Val extends ServerInfoModel>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      whitelistedPlayerUuids: null == whitelistedPlayerUuids
+      whitelistedPlayerUuids: freezed == whitelistedPlayerUuids
           ? _value.whitelistedPlayerUuids
           : whitelistedPlayerUuids // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      bannedUserUuids: null == bannedUserUuids
+              as List<String>?,
+      bannedUserUuids: freezed == bannedUserUuids
           ? _value.bannedUserUuids
           : bannedUserUuids // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -195,21 +196,21 @@ abstract class _$$ServerInfoModelImplCopyWith<$Res>
       {String version,
       String gameonVersion,
       int maxPlayers,
-      List<String> onlinePlayers,
+      List<OnlinePlayer>? onlinePlayers,
       String motd,
       DateTime uptime,
-      List<String> allowedDimensions,
+      List<String>? allowedDimensions,
       int idleTimeout,
-      List<String> enabledPacks,
-      List<String> disabledPacks,
+      List<String>? enabledPacks,
+      List<String>? disabledPacks,
       String defaultGameMode,
       int simulationDistance,
-      List<String> worlds,
+      List<String>? worlds,
       int viewDistance,
       String name,
       String address,
-      @JsonKey(name: 'whitelistedPlayers') List<String> whitelistedPlayerUuids,
-      @JsonKey(name: 'bannedUsers') List<String> bannedUserUuids});
+      @JsonValue('whitelistedPlayers') List<String>? whitelistedPlayerUuids,
+      @JsonValue('bannedUsers') List<String>? bannedUserUuids});
 }
 
 /// @nodoc
@@ -226,21 +227,21 @@ class __$$ServerInfoModelImplCopyWithImpl<$Res>
     Object? version = null,
     Object? gameonVersion = null,
     Object? maxPlayers = null,
-    Object? onlinePlayers = null,
+    Object? onlinePlayers = freezed,
     Object? motd = null,
     Object? uptime = null,
-    Object? allowedDimensions = null,
+    Object? allowedDimensions = freezed,
     Object? idleTimeout = null,
-    Object? enabledPacks = null,
-    Object? disabledPacks = null,
+    Object? enabledPacks = freezed,
+    Object? disabledPacks = freezed,
     Object? defaultGameMode = null,
     Object? simulationDistance = null,
-    Object? worlds = null,
+    Object? worlds = freezed,
     Object? viewDistance = null,
     Object? name = null,
     Object? address = null,
-    Object? whitelistedPlayerUuids = null,
-    Object? bannedUserUuids = null,
+    Object? whitelistedPlayerUuids = freezed,
+    Object? bannedUserUuids = freezed,
   }) {
     return _then(_$ServerInfoModelImpl(
       version: null == version
@@ -255,10 +256,10 @@ class __$$ServerInfoModelImplCopyWithImpl<$Res>
           ? _value.maxPlayers
           : maxPlayers // ignore: cast_nullable_to_non_nullable
               as int,
-      onlinePlayers: null == onlinePlayers
+      onlinePlayers: freezed == onlinePlayers
           ? _value._onlinePlayers
           : onlinePlayers // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<OnlinePlayer>?,
       motd: null == motd
           ? _value.motd
           : motd // ignore: cast_nullable_to_non_nullable
@@ -267,22 +268,22 @@ class __$$ServerInfoModelImplCopyWithImpl<$Res>
           ? _value.uptime
           : uptime // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      allowedDimensions: null == allowedDimensions
+      allowedDimensions: freezed == allowedDimensions
           ? _value._allowedDimensions
           : allowedDimensions // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       idleTimeout: null == idleTimeout
           ? _value.idleTimeout
           : idleTimeout // ignore: cast_nullable_to_non_nullable
               as int,
-      enabledPacks: null == enabledPacks
+      enabledPacks: freezed == enabledPacks
           ? _value._enabledPacks
           : enabledPacks // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      disabledPacks: null == disabledPacks
+              as List<String>?,
+      disabledPacks: freezed == disabledPacks
           ? _value._disabledPacks
           : disabledPacks // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       defaultGameMode: null == defaultGameMode
           ? _value.defaultGameMode
           : defaultGameMode // ignore: cast_nullable_to_non_nullable
@@ -291,10 +292,10 @@ class __$$ServerInfoModelImplCopyWithImpl<$Res>
           ? _value.simulationDistance
           : simulationDistance // ignore: cast_nullable_to_non_nullable
               as int,
-      worlds: null == worlds
+      worlds: freezed == worlds
           ? _value._worlds
           : worlds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       viewDistance: null == viewDistance
           ? _value.viewDistance
           : viewDistance // ignore: cast_nullable_to_non_nullable
@@ -307,14 +308,14 @@ class __$$ServerInfoModelImplCopyWithImpl<$Res>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      whitelistedPlayerUuids: null == whitelistedPlayerUuids
+      whitelistedPlayerUuids: freezed == whitelistedPlayerUuids
           ? _value._whitelistedPlayerUuids
           : whitelistedPlayerUuids // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      bannedUserUuids: null == bannedUserUuids
+              as List<String>?,
+      bannedUserUuids: freezed == bannedUserUuids
           ? _value._bannedUserUuids
           : bannedUserUuids // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
     ));
   }
 }
@@ -326,23 +327,22 @@ class _$ServerInfoModelImpl implements _ServerInfoModel {
       {required this.version,
       required this.gameonVersion,
       required this.maxPlayers,
-      required final List<String> onlinePlayers,
+      required final List<OnlinePlayer>? onlinePlayers,
       required this.motd,
       required this.uptime,
-      required final List<String> allowedDimensions,
+      required final List<String>? allowedDimensions,
       required this.idleTimeout,
-      required final List<String> enabledPacks,
-      required final List<String> disabledPacks,
+      required final List<String>? enabledPacks,
+      required final List<String>? disabledPacks,
       required this.defaultGameMode,
       required this.simulationDistance,
-      required final List<String> worlds,
+      required final List<String>? worlds,
       required this.viewDistance,
       required this.name,
       required this.address,
-      @JsonKey(name: 'whitelistedPlayers')
-      required final List<String> whitelistedPlayerUuids,
-      @JsonKey(name: 'bannedUsers')
-      required final List<String> bannedUserUuids})
+      @JsonValue('whitelistedPlayers')
+      required final List<String>? whitelistedPlayerUuids,
+      @JsonValue('bannedUsers') required final List<String>? bannedUserUuids})
       : _onlinePlayers = onlinePlayers,
         _allowedDimensions = allowedDimensions,
         _enabledPacks = enabledPacks,
@@ -360,55 +360,65 @@ class _$ServerInfoModelImpl implements _ServerInfoModel {
   final String gameonVersion;
   @override
   final int maxPlayers;
-  final List<String> _onlinePlayers;
+  final List<OnlinePlayer>? _onlinePlayers;
   @override
-  List<String> get onlinePlayers {
+  List<OnlinePlayer>? get onlinePlayers {
+    final value = _onlinePlayers;
+    if (value == null) return null;
     if (_onlinePlayers is EqualUnmodifiableListView) return _onlinePlayers;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_onlinePlayers);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   final String motd;
   @override
   final DateTime uptime;
-  final List<String> _allowedDimensions;
+  final List<String>? _allowedDimensions;
   @override
-  List<String> get allowedDimensions {
+  List<String>? get allowedDimensions {
+    final value = _allowedDimensions;
+    if (value == null) return null;
     if (_allowedDimensions is EqualUnmodifiableListView)
       return _allowedDimensions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_allowedDimensions);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   final int idleTimeout;
-  final List<String> _enabledPacks;
+  final List<String>? _enabledPacks;
   @override
-  List<String> get enabledPacks {
+  List<String>? get enabledPacks {
+    final value = _enabledPacks;
+    if (value == null) return null;
     if (_enabledPacks is EqualUnmodifiableListView) return _enabledPacks;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_enabledPacks);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _disabledPacks;
+  final List<String>? _disabledPacks;
   @override
-  List<String> get disabledPacks {
+  List<String>? get disabledPacks {
+    final value = _disabledPacks;
+    if (value == null) return null;
     if (_disabledPacks is EqualUnmodifiableListView) return _disabledPacks;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_disabledPacks);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   final String defaultGameMode;
   @override
   final int simulationDistance;
-  final List<String> _worlds;
+  final List<String>? _worlds;
   @override
-  List<String> get worlds {
+  List<String>? get worlds {
+    final value = _worlds;
+    if (value == null) return null;
     if (_worlds is EqualUnmodifiableListView) return _worlds;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_worlds);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -417,23 +427,27 @@ class _$ServerInfoModelImpl implements _ServerInfoModel {
   final String name;
   @override
   final String address;
-  final List<String> _whitelistedPlayerUuids;
+  final List<String>? _whitelistedPlayerUuids;
   @override
-  @JsonKey(name: 'whitelistedPlayers')
-  List<String> get whitelistedPlayerUuids {
+  @JsonValue('whitelistedPlayers')
+  List<String>? get whitelistedPlayerUuids {
+    final value = _whitelistedPlayerUuids;
+    if (value == null) return null;
     if (_whitelistedPlayerUuids is EqualUnmodifiableListView)
       return _whitelistedPlayerUuids;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_whitelistedPlayerUuids);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _bannedUserUuids;
+  final List<String>? _bannedUserUuids;
   @override
-  @JsonKey(name: 'bannedUsers')
-  List<String> get bannedUserUuids {
+  @JsonValue('bannedUsers')
+  List<String>? get bannedUserUuids {
+    final value = _bannedUserUuids;
+    if (value == null) return null;
     if (_bannedUserUuids is EqualUnmodifiableListView) return _bannedUserUuids;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_bannedUserUuids);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -521,23 +535,23 @@ abstract class _ServerInfoModel implements ServerInfoModel {
       {required final String version,
       required final String gameonVersion,
       required final int maxPlayers,
-      required final List<String> onlinePlayers,
+      required final List<OnlinePlayer>? onlinePlayers,
       required final String motd,
       required final DateTime uptime,
-      required final List<String> allowedDimensions,
+      required final List<String>? allowedDimensions,
       required final int idleTimeout,
-      required final List<String> enabledPacks,
-      required final List<String> disabledPacks,
+      required final List<String>? enabledPacks,
+      required final List<String>? disabledPacks,
       required final String defaultGameMode,
       required final int simulationDistance,
-      required final List<String> worlds,
+      required final List<String>? worlds,
       required final int viewDistance,
       required final String name,
       required final String address,
-      @JsonKey(name: 'whitelistedPlayers')
-      required final List<String> whitelistedPlayerUuids,
-      @JsonKey(name: 'bannedUsers')
-      required final List<String> bannedUserUuids}) = _$ServerInfoModelImpl;
+      @JsonValue('whitelistedPlayers')
+      required final List<String>? whitelistedPlayerUuids,
+      @JsonValue('bannedUsers')
+      required final List<String>? bannedUserUuids}) = _$ServerInfoModelImpl;
 
   factory _ServerInfoModel.fromJson(Map<String, dynamic> json) =
       _$ServerInfoModelImpl.fromJson;
@@ -549,25 +563,25 @@ abstract class _ServerInfoModel implements ServerInfoModel {
   @override
   int get maxPlayers;
   @override
-  List<String> get onlinePlayers;
+  List<OnlinePlayer>? get onlinePlayers;
   @override
   String get motd;
   @override
   DateTime get uptime;
   @override
-  List<String> get allowedDimensions;
+  List<String>? get allowedDimensions;
   @override
   int get idleTimeout;
   @override
-  List<String> get enabledPacks;
+  List<String>? get enabledPacks;
   @override
-  List<String> get disabledPacks;
+  List<String>? get disabledPacks;
   @override
   String get defaultGameMode;
   @override
   int get simulationDistance;
   @override
-  List<String> get worlds;
+  List<String>? get worlds;
   @override
   int get viewDistance;
   @override
@@ -575,13 +589,168 @@ abstract class _ServerInfoModel implements ServerInfoModel {
   @override
   String get address;
   @override
-  @JsonKey(name: 'whitelistedPlayers')
-  List<String> get whitelistedPlayerUuids;
+  @JsonValue('whitelistedPlayers')
+  List<String>? get whitelistedPlayerUuids;
   @override
-  @JsonKey(name: 'bannedUsers')
-  List<String> get bannedUserUuids;
+  @JsonValue('bannedUsers')
+  List<String>? get bannedUserUuids;
   @override
   @JsonKey(ignore: true)
   _$$ServerInfoModelImplCopyWith<_$ServerInfoModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+OnlinePlayer _$OnlinePlayerFromJson(Map<String, dynamic> json) {
+  return _OnlinePlayer.fromJson(json);
+}
+
+/// @nodoc
+mixin _$OnlinePlayer {
+  String get uuid => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $OnlinePlayerCopyWith<OnlinePlayer> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OnlinePlayerCopyWith<$Res> {
+  factory $OnlinePlayerCopyWith(
+          OnlinePlayer value, $Res Function(OnlinePlayer) then) =
+      _$OnlinePlayerCopyWithImpl<$Res, OnlinePlayer>;
+  @useResult
+  $Res call({String uuid, String username});
+}
+
+/// @nodoc
+class _$OnlinePlayerCopyWithImpl<$Res, $Val extends OnlinePlayer>
+    implements $OnlinePlayerCopyWith<$Res> {
+  _$OnlinePlayerCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uuid = null,
+    Object? username = null,
+  }) {
+    return _then(_value.copyWith(
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$OnlinePlayerImplCopyWith<$Res>
+    implements $OnlinePlayerCopyWith<$Res> {
+  factory _$$OnlinePlayerImplCopyWith(
+          _$OnlinePlayerImpl value, $Res Function(_$OnlinePlayerImpl) then) =
+      __$$OnlinePlayerImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String uuid, String username});
+}
+
+/// @nodoc
+class __$$OnlinePlayerImplCopyWithImpl<$Res>
+    extends _$OnlinePlayerCopyWithImpl<$Res, _$OnlinePlayerImpl>
+    implements _$$OnlinePlayerImplCopyWith<$Res> {
+  __$$OnlinePlayerImplCopyWithImpl(
+      _$OnlinePlayerImpl _value, $Res Function(_$OnlinePlayerImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uuid = null,
+    Object? username = null,
+  }) {
+    return _then(_$OnlinePlayerImpl(
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$OnlinePlayerImpl implements _OnlinePlayer {
+  const _$OnlinePlayerImpl({required this.uuid, required this.username});
+
+  factory _$OnlinePlayerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OnlinePlayerImplFromJson(json);
+
+  @override
+  final String uuid;
+  @override
+  final String username;
+
+  @override
+  String toString() {
+    return 'OnlinePlayer(uuid: $uuid, username: $username)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OnlinePlayerImpl &&
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.username, username) ||
+                other.username == username));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, uuid, username);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OnlinePlayerImplCopyWith<_$OnlinePlayerImpl> get copyWith =>
+      __$$OnlinePlayerImplCopyWithImpl<_$OnlinePlayerImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$OnlinePlayerImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _OnlinePlayer implements OnlinePlayer {
+  const factory _OnlinePlayer(
+      {required final String uuid,
+      required final String username}) = _$OnlinePlayerImpl;
+
+  factory _OnlinePlayer.fromJson(Map<String, dynamic> json) =
+      _$OnlinePlayerImpl.fromJson;
+
+  @override
+  String get uuid;
+  @override
+  String get username;
+  @override
+  @JsonKey(ignore: true)
+  _$$OnlinePlayerImplCopyWith<_$OnlinePlayerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

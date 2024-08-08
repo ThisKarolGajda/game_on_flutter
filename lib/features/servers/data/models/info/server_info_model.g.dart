@@ -12,33 +12,33 @@ _$ServerInfoModelImpl _$$ServerInfoModelImplFromJson(
       version: json['version'] as String,
       gameonVersion: json['gameonVersion'] as String,
       maxPlayers: (json['maxPlayers'] as num).toInt(),
-      onlinePlayers: (json['onlinePlayers'] as List<dynamic>)
-          .map((e) => e as String)
+      onlinePlayers: (json['onlinePlayers'] as List<dynamic>?)
+          ?.map((e) => OnlinePlayer.fromJson(e as Map<String, dynamic>))
           .toList(),
       motd: json['motd'] as String,
       uptime: DateTime.parse(json['uptime'] as String),
-      allowedDimensions: (json['allowedDimensions'] as List<dynamic>)
-          .map((e) => e as String)
+      allowedDimensions: (json['allowedDimensions'] as List<dynamic>?)
+          ?.map((e) => e as String)
           .toList(),
       idleTimeout: (json['idleTimeout'] as num).toInt(),
-      enabledPacks: (json['enabledPacks'] as List<dynamic>)
-          .map((e) => e as String)
+      enabledPacks: (json['enabledPacks'] as List<dynamic>?)
+          ?.map((e) => e as String)
           .toList(),
-      disabledPacks: (json['disabledPacks'] as List<dynamic>)
-          .map((e) => e as String)
+      disabledPacks: (json['disabledPacks'] as List<dynamic>?)
+          ?.map((e) => e as String)
           .toList(),
       defaultGameMode: json['defaultGameMode'] as String,
       simulationDistance: (json['simulationDistance'] as num).toInt(),
       worlds:
-          (json['worlds'] as List<dynamic>).map((e) => e as String).toList(),
+          (json['worlds'] as List<dynamic>?)?.map((e) => e as String).toList(),
       viewDistance: (json['viewDistance'] as num).toInt(),
       name: json['name'] as String,
       address: json['address'] as String,
-      whitelistedPlayerUuids: (json['whitelistedPlayers'] as List<dynamic>)
-          .map((e) => e as String)
+      whitelistedPlayerUuids: (json['whitelistedPlayerUuids'] as List<dynamic>?)
+          ?.map((e) => e as String)
           .toList(),
-      bannedUserUuids: (json['bannedUsers'] as List<dynamic>)
-          .map((e) => e as String)
+      bannedUserUuids: (json['bannedUserUuids'] as List<dynamic>?)
+          ?.map((e) => e as String)
           .toList(),
     );
 
@@ -61,6 +61,18 @@ Map<String, dynamic> _$$ServerInfoModelImplToJson(
       'viewDistance': instance.viewDistance,
       'name': instance.name,
       'address': instance.address,
-      'whitelistedPlayers': instance.whitelistedPlayerUuids,
-      'bannedUsers': instance.bannedUserUuids,
+      'whitelistedPlayerUuids': instance.whitelistedPlayerUuids,
+      'bannedUserUuids': instance.bannedUserUuids,
+    };
+
+_$OnlinePlayerImpl _$$OnlinePlayerImplFromJson(Map<String, dynamic> json) =>
+    _$OnlinePlayerImpl(
+      uuid: json['uuid'] as String,
+      username: json['username'] as String,
+    );
+
+Map<String, dynamic> _$$OnlinePlayerImplToJson(_$OnlinePlayerImpl instance) =>
+    <String, dynamic>{
+      'uuid': instance.uuid,
+      'username': instance.username,
     };

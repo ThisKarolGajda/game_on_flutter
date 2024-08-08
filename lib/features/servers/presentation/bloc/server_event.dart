@@ -17,3 +17,5 @@ final class ServerFetch extends ServerEvent {
   @override
   List<Object?> get props => [server];
 }
+
+final class ServerRefresh extends ServerEvent {}
