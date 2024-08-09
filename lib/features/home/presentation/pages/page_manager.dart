@@ -1,6 +1,7 @@
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:game_on/common/util/background.dart';
 import 'package:game_on/common/util/exports.dart';
+import 'package:game_on/common/util/minecraft_heads_cache.dart';
 import 'package:game_on/common/util/widgets/bloc_loading_widget.dart';
 import 'package:game_on/features/home/presentation/pages/chats_page.dart';
 import 'package:game_on/features/home/presentation/pages/forum_page.dart';
@@ -18,7 +19,8 @@ class PageManager extends StatefulWidget {
 }
 
 class PageManagerState extends State<PageManager> {
-  final PageController _pageController = PageController(initialPage: PageControllerHandler.page);
+  final PageController _pageController =
+      PageController(initialPage: PageControllerHandler.page);
   late List<Widget> _pages;
 
   @override
@@ -69,11 +71,10 @@ class PageManagerState extends State<PageManager> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 0.5.h),
-                  Image.network(
-                    'https://mc-heads.net/avatar/${state.userModel.basicData.uuid}',
+                  MinecraftHeadCacheWidget(
                     width: 7.h,
                     height: 7.h,
-                    fit: BoxFit.cover,
+                    uuid: state.userModel.basicData.uuid,
                   ),
                   SizedBox(width: 3.w),
                   Column(

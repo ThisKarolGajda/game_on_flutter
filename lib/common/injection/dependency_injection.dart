@@ -1,4 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:game_on/features/chats/data/data_sources/chat_messages_cache.dart';
+import 'package:game_on/features/chats/data/data_sources/gameon_chats_api.dart';
+import 'package:game_on/features/chats/data/repositories/chat_messages_repository_impl.dart';
 import 'package:game_on/features/news/data/data_sources/gameon_news_api.dart';
 import 'package:game_on/features/servers/data/data_sources/gameon_server_api.dart';
 import 'package:game_on/features/servers/data/data_sources/remote_config_server_api.dart';
@@ -39,6 +42,8 @@ void setupDependencyInjection() {
   get.registerLazySingleton(() => GameonNewsApi(get()));
   get.registerLazySingleton(() => GameonUserDailyRewardApi(get()));
   get.registerLazySingleton(() => GameonUserApi(get()));
+  get.registerLazySingleton(() => ChatsCache());
+  get.registerLazySingleton(() => GameonChatsApi(get()));
 
   // Repositories
   get.registerLazySingleton(() => ServerBasicDataRepositoryImpl(get()));
@@ -46,6 +51,7 @@ void setupDependencyInjection() {
   get.registerLazySingleton(() => ServerInfoRepositoryImpl(get()));
   get.registerLazySingleton(() => UserRepositoryImpl(get()));
   get.registerLazySingleton(() => ColorPanelRepositoryImpl(get()));
+  get.registerLazySingleton(() => ChatMessagesRepositoryImpl(get()));
 
   // BLoCs
   get.registerSingleton(ServerBloc(

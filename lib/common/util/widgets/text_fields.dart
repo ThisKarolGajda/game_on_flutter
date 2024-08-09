@@ -17,7 +17,7 @@ class DefaultTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 84.w,
+      width: 86.w,
       height: 6.h,
       decoration: BoxDecoration(
         borderRadius: borderRadius,

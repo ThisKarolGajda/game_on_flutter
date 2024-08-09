@@ -21,8 +21,8 @@ ColorPanelModel _$ColorPanelModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ColorPanelModel {
   String get accent => throw _privateConstructorUsedError; // 0xAARRGGBB
-  String get secondary => throw _privateConstructorUsedError;
-  String get background => throw _privateConstructorUsedError;
+  String get secondary => throw _privateConstructorUsedError; // 0xAARRGGBB
+  String get background => throw _privateConstructorUsedError; // 0xAARRGGBB
   String get text => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -145,8 +145,10 @@ class _$ColorPanelModelImpl extends _ColorPanelModel {
 // 0xAARRGGBB
   @override
   final String secondary;
+// 0xAARRGGBB
   @override
   final String background;
+// 0xAARRGGBB
   @override
   final String text;
 
@@ -203,9 +205,9 @@ abstract class _ColorPanelModel extends ColorPanelModel {
   String get accent;
   @override // 0xAARRGGBB
   String get secondary;
-  @override
+  @override // 0xAARRGGBB
   String get background;
-  @override
+  @override // 0xAARRGGBB
   String get text;
   @override
   @JsonKey(ignore: true)
