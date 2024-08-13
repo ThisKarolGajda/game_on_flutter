@@ -3,6 +3,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:game_on/common/app/gameon_app.dart';
 import 'package:game_on/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import 'common/util/exports.dart';
 
@@ -34,6 +35,8 @@ Future<void> main() async {
   setupDependencyInjection();
 
   updateLightMode();
+
+  initializeDateFormatting('pl_PL');
 
   runApp(const GameonApp());
 }

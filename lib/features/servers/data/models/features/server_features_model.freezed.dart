@@ -22,8 +22,12 @@ ServerFeaturesModel _$ServerFeaturesModelFromJson(Map<String, dynamic> json) {
 mixin _$ServerFeaturesModel {
   List<String> get features => throw _privateConstructorUsedError;
 
+  /// Serializes this ServerFeaturesModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ServerFeaturesModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ServerFeaturesModelCopyWith<ServerFeaturesModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$ServerFeaturesModelCopyWithImpl<$Res, $Val extends ServerFeaturesModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ServerFeaturesModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$ServerFeaturesModelImplCopyWithImpl<$Res>
       $Res Function(_$ServerFeaturesModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ServerFeaturesModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,12 +132,14 @@ class _$ServerFeaturesModelImpl implements _ServerFeaturesModel {
             const DeepCollectionEquality().equals(other._features, _features));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_features));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServerFeaturesModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ServerFeaturesModelImplCopyWith<_$ServerFeaturesModelImpl> get copyWith =>
@@ -153,8 +163,11 @@ abstract class _ServerFeaturesModel implements ServerFeaturesModel {
 
   @override
   List<String> get features;
+
+  /// Create a copy of ServerFeaturesModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ServerFeaturesModelImplCopyWith<_$ServerFeaturesModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

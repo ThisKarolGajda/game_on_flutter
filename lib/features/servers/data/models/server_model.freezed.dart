@@ -25,8 +25,12 @@ mixin _$ServerModel {
   ServerBasicDataModel get basicData => throw _privateConstructorUsedError;
   ColorPanelModel? get colorPanel => throw _privateConstructorUsedError;
 
+  /// Serializes this ServerModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ServerModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ServerModelCopyWith<ServerModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,6 +63,8 @@ class _$ServerModelCopyWithImpl<$Res, $Val extends ServerModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ServerModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -87,6 +93,8 @@ class _$ServerModelCopyWithImpl<$Res, $Val extends ServerModel>
     ) as $Val);
   }
 
+  /// Create a copy of ServerModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ServerFeaturesModelCopyWith<$Res>? get features {
@@ -99,6 +107,8 @@ class _$ServerModelCopyWithImpl<$Res, $Val extends ServerModel>
     });
   }
 
+  /// Create a copy of ServerModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ServerInfoModelCopyWith<$Res>? get info {
@@ -111,6 +121,8 @@ class _$ServerModelCopyWithImpl<$Res, $Val extends ServerModel>
     });
   }
 
+  /// Create a copy of ServerModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ServerBasicDataModelCopyWith<$Res> get basicData {
@@ -119,6 +131,8 @@ class _$ServerModelCopyWithImpl<$Res, $Val extends ServerModel>
     });
   }
 
+  /// Create a copy of ServerModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ColorPanelModelCopyWith<$Res>? get colorPanel {
@@ -164,6 +178,8 @@ class __$$ServerModelImplCopyWithImpl<$Res>
       _$ServerModelImpl _value, $Res Function(_$ServerModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ServerModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -230,12 +246,14 @@ class _$ServerModelImpl implements _ServerModel {
                 other.colorPanel == colorPanel));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, features, info, basicData, colorPanel);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServerModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ServerModelImplCopyWith<_$ServerModelImpl> get copyWith =>
@@ -267,8 +285,11 @@ abstract class _ServerModel implements ServerModel {
   ServerBasicDataModel get basicData;
   @override
   ColorPanelModel? get colorPanel;
+
+  /// Create a copy of ServerModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ServerModelImplCopyWith<_$ServerModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

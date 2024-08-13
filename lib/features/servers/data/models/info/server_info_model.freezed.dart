@@ -23,7 +23,8 @@ mixin _$ServerInfoModel {
   String get version => throw _privateConstructorUsedError;
   String get gameonVersion => throw _privateConstructorUsedError;
   int get maxPlayers => throw _privateConstructorUsedError;
-  List<OnlinePlayer>? get onlinePlayers => throw _privateConstructorUsedError;
+  List<UserModelUserId>? get onlinePlayers =>
+      throw _privateConstructorUsedError;
   String get motd => throw _privateConstructorUsedError;
   DateTime get uptime => throw _privateConstructorUsedError;
   List<String>? get allowedDimensions => throw _privateConstructorUsedError;
@@ -42,8 +43,12 @@ mixin _$ServerInfoModel {
   @JsonValue('bannedUsers')
   List<String>? get bannedUserUuids => throw _privateConstructorUsedError;
 
+  /// Serializes this ServerInfoModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ServerInfoModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ServerInfoModelCopyWith<ServerInfoModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,7 +63,7 @@ abstract class $ServerInfoModelCopyWith<$Res> {
       {String version,
       String gameonVersion,
       int maxPlayers,
-      List<OnlinePlayer>? onlinePlayers,
+      List<UserModelUserId>? onlinePlayers,
       String motd,
       DateTime uptime,
       List<String>? allowedDimensions,
@@ -85,6 +90,8 @@ class _$ServerInfoModelCopyWithImpl<$Res, $Val extends ServerInfoModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ServerInfoModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -123,7 +130,7 @@ class _$ServerInfoModelCopyWithImpl<$Res, $Val extends ServerInfoModel>
       onlinePlayers: freezed == onlinePlayers
           ? _value.onlinePlayers
           : onlinePlayers // ignore: cast_nullable_to_non_nullable
-              as List<OnlinePlayer>?,
+              as List<UserModelUserId>?,
       motd: null == motd
           ? _value.motd
           : motd // ignore: cast_nullable_to_non_nullable
@@ -196,7 +203,7 @@ abstract class _$$ServerInfoModelImplCopyWith<$Res>
       {String version,
       String gameonVersion,
       int maxPlayers,
-      List<OnlinePlayer>? onlinePlayers,
+      List<UserModelUserId>? onlinePlayers,
       String motd,
       DateTime uptime,
       List<String>? allowedDimensions,
@@ -221,6 +228,8 @@ class __$$ServerInfoModelImplCopyWithImpl<$Res>
       _$ServerInfoModelImpl _value, $Res Function(_$ServerInfoModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ServerInfoModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -259,7 +268,7 @@ class __$$ServerInfoModelImplCopyWithImpl<$Res>
       onlinePlayers: freezed == onlinePlayers
           ? _value._onlinePlayers
           : onlinePlayers // ignore: cast_nullable_to_non_nullable
-              as List<OnlinePlayer>?,
+              as List<UserModelUserId>?,
       motd: null == motd
           ? _value.motd
           : motd // ignore: cast_nullable_to_non_nullable
@@ -327,7 +336,7 @@ class _$ServerInfoModelImpl implements _ServerInfoModel {
       {required this.version,
       required this.gameonVersion,
       required this.maxPlayers,
-      required final List<OnlinePlayer>? onlinePlayers,
+      required final List<UserModelUserId>? onlinePlayers,
       required this.motd,
       required this.uptime,
       required final List<String>? allowedDimensions,
@@ -360,9 +369,9 @@ class _$ServerInfoModelImpl implements _ServerInfoModel {
   final String gameonVersion;
   @override
   final int maxPlayers;
-  final List<OnlinePlayer>? _onlinePlayers;
+  final List<UserModelUserId>? _onlinePlayers;
   @override
-  List<OnlinePlayer>? get onlinePlayers {
+  List<UserModelUserId>? get onlinePlayers {
     final value = _onlinePlayers;
     if (value == null) return null;
     if (_onlinePlayers is EqualUnmodifiableListView) return _onlinePlayers;
@@ -492,7 +501,7 @@ class _$ServerInfoModelImpl implements _ServerInfoModel {
                 .equals(other._bannedUserUuids, _bannedUserUuids));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -515,7 +524,9 @@ class _$ServerInfoModelImpl implements _ServerInfoModel {
       const DeepCollectionEquality().hash(_whitelistedPlayerUuids),
       const DeepCollectionEquality().hash(_bannedUserUuids));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServerInfoModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ServerInfoModelImplCopyWith<_$ServerInfoModelImpl> get copyWith =>
@@ -535,7 +546,7 @@ abstract class _ServerInfoModel implements ServerInfoModel {
       {required final String version,
       required final String gameonVersion,
       required final int maxPlayers,
-      required final List<OnlinePlayer>? onlinePlayers,
+      required final List<UserModelUserId>? onlinePlayers,
       required final String motd,
       required final DateTime uptime,
       required final List<String>? allowedDimensions,
@@ -563,7 +574,7 @@ abstract class _ServerInfoModel implements ServerInfoModel {
   @override
   int get maxPlayers;
   @override
-  List<OnlinePlayer>? get onlinePlayers;
+  List<UserModelUserId>? get onlinePlayers;
   @override
   String get motd;
   @override
@@ -594,163 +605,11 @@ abstract class _ServerInfoModel implements ServerInfoModel {
   @override
   @JsonValue('bannedUsers')
   List<String>? get bannedUserUuids;
+
+  /// Create a copy of ServerInfoModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ServerInfoModelImplCopyWith<_$ServerInfoModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-OnlinePlayer _$OnlinePlayerFromJson(Map<String, dynamic> json) {
-  return _OnlinePlayer.fromJson(json);
-}
-
-/// @nodoc
-mixin _$OnlinePlayer {
-  String get uuid => throw _privateConstructorUsedError;
-  String get username => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $OnlinePlayerCopyWith<OnlinePlayer> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $OnlinePlayerCopyWith<$Res> {
-  factory $OnlinePlayerCopyWith(
-          OnlinePlayer value, $Res Function(OnlinePlayer) then) =
-      _$OnlinePlayerCopyWithImpl<$Res, OnlinePlayer>;
-  @useResult
-  $Res call({String uuid, String username});
-}
-
-/// @nodoc
-class _$OnlinePlayerCopyWithImpl<$Res, $Val extends OnlinePlayer>
-    implements $OnlinePlayerCopyWith<$Res> {
-  _$OnlinePlayerCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uuid = null,
-    Object? username = null,
-  }) {
-    return _then(_value.copyWith(
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$OnlinePlayerImplCopyWith<$Res>
-    implements $OnlinePlayerCopyWith<$Res> {
-  factory _$$OnlinePlayerImplCopyWith(
-          _$OnlinePlayerImpl value, $Res Function(_$OnlinePlayerImpl) then) =
-      __$$OnlinePlayerImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String uuid, String username});
-}
-
-/// @nodoc
-class __$$OnlinePlayerImplCopyWithImpl<$Res>
-    extends _$OnlinePlayerCopyWithImpl<$Res, _$OnlinePlayerImpl>
-    implements _$$OnlinePlayerImplCopyWith<$Res> {
-  __$$OnlinePlayerImplCopyWithImpl(
-      _$OnlinePlayerImpl _value, $Res Function(_$OnlinePlayerImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? uuid = null,
-    Object? username = null,
-  }) {
-    return _then(_$OnlinePlayerImpl(
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$OnlinePlayerImpl implements _OnlinePlayer {
-  const _$OnlinePlayerImpl({required this.uuid, required this.username});
-
-  factory _$OnlinePlayerImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OnlinePlayerImplFromJson(json);
-
-  @override
-  final String uuid;
-  @override
-  final String username;
-
-  @override
-  String toString() {
-    return 'OnlinePlayer(uuid: $uuid, username: $username)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OnlinePlayerImpl &&
-            (identical(other.uuid, uuid) || other.uuid == uuid) &&
-            (identical(other.username, username) ||
-                other.username == username));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, uuid, username);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OnlinePlayerImplCopyWith<_$OnlinePlayerImpl> get copyWith =>
-      __$$OnlinePlayerImplCopyWithImpl<_$OnlinePlayerImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OnlinePlayerImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _OnlinePlayer implements OnlinePlayer {
-  const factory _OnlinePlayer(
-      {required final String uuid,
-      required final String username}) = _$OnlinePlayerImpl;
-
-  factory _OnlinePlayer.fromJson(Map<String, dynamic> json) =
-      _$OnlinePlayerImpl.fromJson;
-
-  @override
-  String get uuid;
-  @override
-  String get username;
-  @override
-  @JsonKey(ignore: true)
-  _$$OnlinePlayerImplCopyWith<_$OnlinePlayerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

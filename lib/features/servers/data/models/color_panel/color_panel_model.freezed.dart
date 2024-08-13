@@ -25,8 +25,12 @@ mixin _$ColorPanelModel {
   String get background => throw _privateConstructorUsedError; // 0xAARRGGBB
   String get text => throw _privateConstructorUsedError;
 
+  /// Serializes this ColorPanelModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ColorPanelModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ColorPanelModelCopyWith<ColorPanelModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$ColorPanelModelCopyWithImpl<$Res, $Val extends ColorPanelModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ColorPanelModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -98,6 +104,8 @@ class __$$ColorPanelModelImplCopyWithImpl<$Res>
       _$ColorPanelModelImpl _value, $Res Function(_$ColorPanelModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ColorPanelModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -170,12 +178,14 @@ class _$ColorPanelModelImpl extends _ColorPanelModel {
             (identical(other.text, text) || other.text == text));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, accent, secondary, background, text);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ColorPanelModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ColorPanelModelImplCopyWith<_$ColorPanelModelImpl> get copyWith =>
@@ -202,15 +212,18 @@ abstract class _ColorPanelModel extends ColorPanelModel {
       _$ColorPanelModelImpl.fromJson;
 
   @override
-  String get accent;
-  @override // 0xAARRGGBB
-  String get secondary;
-  @override // 0xAARRGGBB
-  String get background;
-  @override // 0xAARRGGBB
-  String get text;
+  String get accent; // 0xAARRGGBB
   @override
-  @JsonKey(ignore: true)
+  String get secondary; // 0xAARRGGBB
+  @override
+  String get background; // 0xAARRGGBB
+  @override
+  String get text;
+
+  /// Create a copy of ColorPanelModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ColorPanelModelImplCopyWith<_$ColorPanelModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

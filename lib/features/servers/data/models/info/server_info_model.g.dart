@@ -13,7 +13,7 @@ _$ServerInfoModelImpl _$$ServerInfoModelImplFromJson(
       gameonVersion: json['gameonVersion'] as String,
       maxPlayers: (json['maxPlayers'] as num).toInt(),
       onlinePlayers: (json['onlinePlayers'] as List<dynamic>?)
-          ?.map((e) => OnlinePlayer.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => UserModelUserId.fromJson(e as Map<String, dynamic>))
           .toList(),
       motd: json['motd'] as String,
       uptime: DateTime.parse(json['uptime'] as String),
@@ -63,16 +63,4 @@ Map<String, dynamic> _$$ServerInfoModelImplToJson(
       'address': instance.address,
       'whitelistedPlayerUuids': instance.whitelistedPlayerUuids,
       'bannedUserUuids': instance.bannedUserUuids,
-    };
-
-_$OnlinePlayerImpl _$$OnlinePlayerImplFromJson(Map<String, dynamic> json) =>
-    _$OnlinePlayerImpl(
-      uuid: json['uuid'] as String,
-      username: json['username'] as String,
-    );
-
-Map<String, dynamic> _$$OnlinePlayerImplToJson(_$OnlinePlayerImpl instance) =>
-    <String, dynamic>{
-      'uuid': instance.uuid,
-      'username': instance.username,
     };

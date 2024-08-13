@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:game_on/features/user/data/models/user_model.dart';
 
 part 'server_info_model.freezed.dart';
 part 'server_info_model.g.dart';
@@ -9,7 +10,7 @@ class ServerInfoModel with _$ServerInfoModel {
     required String version,
     required String gameonVersion,
     required int maxPlayers,
-    required List<OnlinePlayer>? onlinePlayers,
+    required List<UserModelUserId>? onlinePlayers,
     required String motd,
     required DateTime uptime,
     required List<String>? allowedDimensions,
@@ -27,14 +28,4 @@ class ServerInfoModel with _$ServerInfoModel {
   }) = _ServerInfoModel;
 
   factory ServerInfoModel.fromJson(Map<String, dynamic> json) => _$ServerInfoModelFromJson(json);
-}
-
-@freezed
-class OnlinePlayer with _$OnlinePlayer {
-  const factory OnlinePlayer({
-    required String uuid,
-    required String username,
-  }) = _OnlinePlayer;
-
-  factory OnlinePlayer.fromJson(Map<String, dynamic> json) => _$OnlinePlayerFromJson(json);
 }

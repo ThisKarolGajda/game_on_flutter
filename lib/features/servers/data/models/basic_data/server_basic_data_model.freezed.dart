@@ -27,8 +27,12 @@ mixin _$ServerBasicDataModel {
   bool get featured => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
 
+  /// Serializes this ServerBasicDataModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ServerBasicDataModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ServerBasicDataModelCopyWith<ServerBasicDataModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,6 +63,8 @@ class _$ServerBasicDataModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ServerBasicDataModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -123,6 +129,8 @@ class __$$ServerModelImplCopyWithImpl<$Res>
       _$ServerModelImpl _value, $Res Function(_$ServerModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ServerBasicDataModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -209,12 +217,14 @@ class _$ServerModelImpl implements _ServerModel {
                 other.description == description));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, name, address, port, image, featured, description);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ServerBasicDataModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ServerModelImplCopyWith<_$ServerModelImpl> get copyWith =>
@@ -252,8 +262,11 @@ abstract class _ServerModel implements ServerBasicDataModel {
   bool get featured;
   @override
   String get description;
+
+  /// Create a copy of ServerBasicDataModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ServerModelImplCopyWith<_$ServerModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

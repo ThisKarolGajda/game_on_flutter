@@ -113,9 +113,7 @@ class ServerCardWidget extends StatelessWidget {
     StreamSubscription<UserState>? userSubscription;
 
     userSubscription = userBloc.stream.listen((state) {
-      print('State: $state');
       if (state is UserLoaded) {
-        print('IT SHOULD MOVE TO THE PAGE RIGHT HERE< BUT DOES IT?');
         if (context.mounted) {
           context.push('/server/page');
         }

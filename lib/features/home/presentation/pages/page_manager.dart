@@ -74,7 +74,7 @@ class PageManagerState extends State<PageManager> {
                   MinecraftHeadCacheWidget(
                     width: 7.h,
                     height: 7.h,
-                    uuid: state.userModel.basicData.uuid,
+                    userId: state.userModel.userId,
                   ),
                   SizedBox(width: 3.w),
                   Column(
@@ -86,7 +86,7 @@ class PageManagerState extends State<PageManager> {
                         style: TextStyles.base(),
                       ),
                       Text(
-                        state.userModel.basicData.nickname,
+                        state.userModel.userId.nickname,
                         style: TextStyles.xxl(),
                       ),
                     ],

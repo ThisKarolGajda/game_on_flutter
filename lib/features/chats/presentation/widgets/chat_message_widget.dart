@@ -1,6 +1,7 @@
 import 'package:game_on/common/util/exports.dart';
 import 'package:game_on/common/util/minecraft_heads_cache.dart';
 import 'package:game_on/features/chats/data/model/chat_message_model.dart';
+import 'package:game_on/features/user/data/models/user_model.dart';
 import 'package:intl/intl.dart';
 
 class ChatMessageWidget extends StatelessWidget {
@@ -22,7 +23,10 @@ class ChatMessageWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                MinecraftHeadCacheWidget(uuid: chatModel.uuid),
+                MinecraftHeadCacheWidget(
+                  userId: UserModelUserId(
+                      uuid: chatModel.uuid, nickname: chatModel.nickname),
+                ),
                 SizedBox(width: 2.w),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +43,10 @@ class ChatMessageWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Text(chatModel.source, style: TextStyles.xs(),),
+            Text(
+              chatModel.source,
+              style: TextStyles.xs(),
+            ),
           ],
         ),
         SizedBox(height: 0.5.h),

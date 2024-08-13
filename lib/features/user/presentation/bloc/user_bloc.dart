@@ -44,14 +44,11 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     }
 
     await _repository
-        .getUser(event.serverBasicDataModel, event.bearerToken)
+        .getUserModel(event.serverBasicDataModel, event.bearerToken)
         .fold(
       (exception) => emit(UserException(exception)),
       (user) {
-        emit(UserLoaded(
-          UserModel(basicData: user),
-          serverModel,
-        ));
+        emit(UserLoaded(user, serverModel));
       },
     );
   }

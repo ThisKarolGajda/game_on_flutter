@@ -26,8 +26,12 @@ mixin _$ChatMessageModel {
   String get nickname => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
 
+  /// Serializes this ChatMessageModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ChatMessageModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ChatMessageModelCopyWith<ChatMessageModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$ChatMessageModelCopyWithImpl<$Res, $Val extends ChatMessageModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ChatMessageModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +120,8 @@ class __$$ChatMessageModelImplCopyWithImpl<$Res>
       $Res Function(_$ChatMessageModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ChatMessageModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -190,12 +198,14 @@ class _$ChatMessageModelImpl implements _ChatMessageModel {
             (identical(other.date, date) || other.date == date));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, source, message, uuid, nickname, date);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ChatMessageModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChatMessageModelImplCopyWith<_$ChatMessageModelImpl> get copyWith =>
@@ -231,8 +241,11 @@ abstract class _ChatMessageModel implements ChatMessageModel {
   String get nickname;
   @override
   DateTime get date;
+
+  /// Create a copy of ChatMessageModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChatMessageModelImplCopyWith<_$ChatMessageModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

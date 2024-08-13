@@ -11,6 +11,7 @@ import 'package:game_on/features/servers/data/repositories/server_basic_data_rep
 import 'package:game_on/features/servers/data/repositories/server_features_repository_impl.dart';
 import 'package:game_on/features/servers/data/repositories/server_info_repository_impl.dart';
 import 'package:game_on/features/servers/presentation/bloc/server_bloc.dart';
+import 'package:game_on/features/stats/data/data_sources/gameon_stats_api.dart';
 import 'package:game_on/features/user/data/data_sources/gameon_user_api.dart';
 import 'package:game_on/features/user/data/data_sources/gameon_user_daily_reward_api.dart';
 import 'package:game_on/features/user/data/repositories/user_repository_impl.dart';
@@ -44,6 +45,7 @@ void setupDependencyInjection() {
   get.registerLazySingleton(() => GameonUserApi(get()));
   get.registerLazySingleton(() => ChatsCache());
   get.registerLazySingleton(() => GameonChatsApi(get()));
+  get.registerLazySingleton(() => GameonStatsApi(get()));
 
   // Repositories
   get.registerLazySingleton(() => ServerBasicDataRepositoryImpl(get()));
